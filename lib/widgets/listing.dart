@@ -18,6 +18,8 @@ class Listing extends StatefulWidget {
 class _ListingState extends State<Listing> {
   @override
   Widget build(BuildContext context) {
+    var people = widget.people;
+    people.sort((a, b) => (a.lastSeen.compareTo(b.lastSeen)));
     return Card(
       color: Colors.grey.shade300,
       elevation: 5,

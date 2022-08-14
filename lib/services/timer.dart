@@ -1,6 +1,6 @@
 class TimerService {
   Stream<DateTime> timeStream = Stream.periodic(
-    const Duration(seconds: 30),
+    const Duration(seconds: 10),
     (_) {
       return DateTime.now();
     },
@@ -18,7 +18,7 @@ String smartDiff({required DateTime now, required DateTime old}) {
   };
 
   for (var interval in intervals.entries) {
-    if (interval.value != 0) {
+    if (interval.value > 0) {
       final plural = (interval.value != 1) ? 's' : '';
       return '${interval.value} ${interval.key}$plural ago';
     }
